@@ -27,8 +27,7 @@ Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais
 
 | SEGMENTS | REGISTRES | DRAPEAUX |
 |----------|-----------|----------|
-|  Sorte de boîte où on va mettre des instructions.  | Petite zone de stockage d’accès très rapide située dans le microprocesseur qui a une fonction particulière     |  De longueur 64 bits, dont seuls les 32 premiers sont utilisés. Chaque bit porte une information sur l’état du processeur, ou sur le résultat de
-la dernière opération.
+|  Sorte de boîte où on va mettre des instructions.  | Petite zone de stockage d’accès très rapide située dans le microprocesseur qui a une fonction particulière     |  De longueur 64 bits, dont seuls les 32 premiers sont utilisés. Chaque bit porte une information sur l’état du processeur, ou sur le résultat de la dernière opération.
       | 
 |  | 48308     | 48310    |
 | p*       | 48310     | 3        |
