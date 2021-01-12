@@ -25,10 +25,27 @@ Nasm = assembleur à utiliser pour tes fichiers .s
 #### Documentation :
 Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup : [ici](https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf). Deux autres documentations pas mal : [celle-ci](http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm) et [celle-la](https://www.lacl.fr/tan/asm).
 
+Dans tes fonctions en assembleur tu vas utiliser des instructions, manipuler des registres, et utiliser des segments, et des drapeaux.
+#### Segments, registres, drapeaux :
+
 | SEGMENTS | REGISTRES | DRAPEAUX |
 |----------|-----------|----------|
 |  Sorte de boîte où on va mettre des instructions.                   | Petite zone de stockage d’accès très rapide située dans le microprocesseur qui a une fonction particulière     |  De longueur 64 bits, dont seuls les 32 premiers sont utilisés. Chaque bit porte une information sur l’état du processeur, ou sur le résultat de la dernière opération.| 
 | **.bss** = on met les variables qui ne sont pas initialisées (comme int a) **.data** = on y met les variables initialisées **.text** = on y met les instructions, le code exécutable |  **rsp** = contient l’adresse de la donnée qui se trouve au sommet de la pile. **rax** = registre général, accumulateur, contient la valeur de retour des fonctions. **rbx** = registre général. **rcx** = registre général, compteur de boucle. **rdx** = registre général, partie haute d’une valeur 128 bits. **rsi** = registre général, adresse source pour déplacement ou comparaison. **rdi** = registre général, adresse destination pour déplacement ou comparaison. **rsp**  = registre général, pointeur de pile (stack pointer). **rbp** = registre général, pointeur de base (base pointer). **r8,r9, et r15** = registres généraux | **ZF** = Zero Flag (bit 6) vaut 1 lorsque le résultat de la dernière opération est 0. **SF** = Vaut 1 si le résultat de la dernière opération est négatif. ...|
+
+#### Instructions :
+| Au niveau de la pile  | Déplacement de données  | Arithmétique  | Comparaison et branchement|
+|----------|-------|----------|---------|
+| **push** = ajoute une donnée sur la pile de taille qword (64 bits) (au sommet de la pile). décrément rsp de 8. **pop** = retire la donnée de taille qword qui se trouve au sommet de la pile. incrémente rsp de 8. | **mov opérandecible, opérandesource** = copier opérande source dans une opérande destinataire | **add op1,op2** = op1 ← op1 + op2 (=on met le résultat de op1 + op2 dans dans op1). **sub op1, op2** = op1 ← op1 − op2. **neg reg** = reg ← −reg (reg = registre). **inc reg** = reg ← reg + 1. **dec reg** = reg ← reg − 1. | **cmp op1,op2** = compare deux opérandes. Pour cela fait op1 − op2. si = à 0 c’est les mêmes, si != 0 c’est pas les mêmes, où drapeau ZF vaut 1 lorsque le résultat est 0. jmp op : branchement inconditionnel à l’adresse op. **jz op** = branchement à l’adresse op si ZF=1. **jnz op** = branchement à l’adresse op si ZF=0. **jo op** = branchement à l’adresse op si OF=1. **jno op** = branchement à l’adresse op si OF=0. **js op** = branchement à l’adresse op si SF=1 ...|
+
+#### Paramètres envoyés à notre fonction assembleur :
+ft_example(param1, param2, param3, param4,param5, param6)
+- param1 sera stocké dans rdi
+- param2 dans rsi
+- param3 dans rdx
+- param4 dans rcx 
+- param5 dans r8 
+- param6 dans r9
 
 #### Syntaxe :
   ```
@@ -45,14 +62,6 @@ Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais
   [01234ABC]               ; emplacement mémoire absolue
   [DI]                     ; contenu en octets du segment de données adressé par DI
    ```
-#### Paramètres envoyés à notre fonction assembleur :
-ft_example(param1, param2, param3, param4,param5, param6)
-- param1 sera stocké dans rdi
-- param2 dans rsi
-- param3 dans rdx
-- param4 dans rcx 
-- param5 dans r8 
-- param6 dans r9
 
 ## étape 2  : La compilation
 Compilation :
