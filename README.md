@@ -33,12 +33,12 @@ Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais
   segment.                 ; pas obligatoire d’écrire les segments, par exemple data.
   étiquette:               ; par exemple _ft_strlen:
   inst   dest, src, last   ; instruction par exemple mov et les opérandes par exemple mov rax, rdi
-  [UnSymbole]       ; adresse mémoire du symbole
-  UnSymbole         ; valeur du symbole
-  [adresse]         ; représente la valeur stockée à l'adresse adresse.
-  [Registre]        ; représente la valeur stockée à l’adresse contenue dans le registre
-  [01234ABC]        ; emplacement mémoire absolue
-  [DI]              ; contenu en octets du segment de données adressé par DI
+  [UnSymbole]              ; adresse mémoire du symbole
+  UnSymbole                ; valeur du symbole
+  [adresse]                ; représente la valeur stockée à l'adresse adresse.
+  [Registre]               ; représente la valeur stockée à l’adresse contenue dans le registre
+  [01234ABC]               ; emplacement mémoire absolue
+  [DI]                     ; contenu en octets du segment de données adressé par DI
    ```
 #### Paramètres envoyés à notre fonction assembleur :
 ft_example(param1, param2, param3, param4,param5, param6)
