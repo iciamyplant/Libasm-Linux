@@ -80,8 +80,8 @@ nasm -f macho64 -o test.o test.s
 gcc main.c test.o libasm.h
    ```
 Sur Linux tu peux compiler avec le flag : -felf64. 
--elf64 = c'est outpout file format pour Linux
--f = si tu mets pas le -f à NASM il va choisir un outpout file format tout seul
+- -elf64 = c'est outpout file format pour Linux
+- -f = si tu mets pas le -f à NASM il va choisir un outpout file format tout seul
 
 Sur MacOs tu peux compiler avec le flag : -f macho64
 
