@@ -1,17 +1,5 @@
 # Libasm-Linux
 
-### Plan :
-#### I - Comprendre le sujet
-#### II - Comment ai-je fait Libasm ? 5 étapes
- - étape 1  : Comprendre les bases
- - étape 2  : La compilation
- - étape 3  : Les fonctions
- - étape 4  : Gestion des erreurs
- - étape 5  : Adapter à Linux
-#### III - Les trucs utiles que j'ai appris
- - VIM
- - Rappels sur le Makefile
-
 # I - Comprendre le sujet
 ### En gros y a différentes composantes dans ton ordi :
 - la ram (= mémoire ram ou mémoire vive)
@@ -29,7 +17,7 @@ ASM 64 bits = langage assembleur adapté au processeur ayant pour jeu d’instru
 
 Asm inline = l'assembleur inline permet d'incorporer des instructions en langage assembleur directement dans des programmes sources C sans code assembleur ni étapes de liaison supplémentaires. 
 
-Nasm = compilateur
+Nasm = assembleur à utiliser pour tes fichiers .s
 
 # II - Comment ai-je fait Libasm ? 5 étapes
 
