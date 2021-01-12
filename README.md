@@ -65,9 +65,11 @@ ft_example(param1, param2, param3, param4,param5, param6)
    ```
 
 ## étape 2  : La compilation
-Compilation :
-installer nasm : brew install nasm
-imaginons que j’ai un fichier main.c un fichier test.s et un fichier libasm.h
+- installer nasm : 
+  ```
+brew install nasm
+  ```
+- imaginons que j’ai un fichier main.c un fichier test.s et un fichier libasm.h
 nasm -f macho64 -o test.o test.s
 gcc main.c test.o libasm.h
 
