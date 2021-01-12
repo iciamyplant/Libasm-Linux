@@ -36,12 +36,12 @@ Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais
    ```
 #### Paramètres envoyés à notre fonction assembleur :
 ft_example(param1, param2, param3, param4,param5, param6)
-- rdi param1
-- rsi param2
-- rdx param3
-- rcx param4
-- r8 param5
-- r9 param6
+- param1 sera stocké dans rdi
+- param2 dans rsi
+- param3 dans rdx
+- param4 dans rcx 
+- param5 dans r8 
+- param6 dans r9
 
 #### Syntaxe :
   ```
