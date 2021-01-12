@@ -1,13 +1,13 @@
 # Libasm-Linux
 
 # I - Comprendre le sujet
-### En gros y a différentes composantes dans ton ordi :
+#### En gros y a différentes composantes dans ton ordi :
 - la ram (= mémoire ram ou mémoire vive)
 - le stockage
 - la carte graphique
 - MAIS SURTOUT : le processeur (= le CPU) : c'est le cerveau de l'ordinateur : il calcule tout. Et y a différents types de processeurs, qui utilisent différents types de jeu d'instruction.
 
-### Et c'est justement le processeur qui exécute les programmes qu'on code, sauf qu'il comprend que le langage binaire.
+#### Et c'est justement le processeur qui exécute les programmes qu'on code, sauf qu'il comprend que le langage binaire.
 
 Assembleur = ensemble de langages de programmation. L’asm est la représentation lisible du langage binaire que comprend le processeur. Y a un langage assembleur par jeu d’instructions. 
 
@@ -43,14 +43,15 @@ ft_example(param1, param2, param3, param4,param5, param6)
 - r8 param5
 - r9 param6
 
-Syntaxe :
-[UnSymbole] = adresse mémoire du symbole
-UnSymbole = valeur du symbole
-[adresse] représente la valeur stockée à l'adresse adresse.
-[Registre] = représente la valeur stockée à l’adresse contenue dans le registre
-[01234ABC] = emplacement mémoire absolue
-[DI] = contenu en octets du segment de données adressé par DI
-
+#### Syntaxe :
+  ```
+[UnSymbole]       ; adresse mémoire du symbole
+UnSymbole         ; valeur du symbole
+[adresse]         ; représente la valeur stockée à l'adresse adresse.
+[Registre]        ; représente la valeur stockée à l’adresse contenue dans le registre
+[01234ABC]        ; emplacement mémoire absolue
+[DI]              ; contenu en octets du segment de données adressé par DI
+   ```
 
 ## étape 2  : La compilation
 Compilation :
