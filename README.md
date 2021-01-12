@@ -24,6 +24,37 @@ syntaxe Intel?? On distingue 2 syntaxes : Intel et at&t
 # II - Comment ai-je fait Libasm ? 5 étapes
 
 ## étape 1  : Comprendre les bases
+Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup. Même si ça en a pas l’air avec la page de garde tout est expliqué clairement avec des exemples.
+ : https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf
+http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm
+
+https://www.lacl.fr/tan/asm
+
+Format :
+extern *fonctionexterneutilisée*
+global *fonctionglobaledéclarée*
+segment. (pas obligatoire d’écrire les segments)
+étiquette (par exemple _ft_strlen:)
+instruction destination_operand, source_operand, last_operand
+
+Paramètres envoyés à notre fonction assembleur :
+ft_example(param1, param2, param3, param4,param5, param6)
+rdi param1
+rsi param2
+rdx param3
+rcx param4
+r8 param5
+r9 param6
+
+Syntaxe :
+[UnSymbole] = adresse mémoire du symbole
+UnSymbole = valeur du symbole
+[adresse] représente la valeur stockée à l'adresse adresse.
+[Registre] = représente la valeur stockée à l’adresse contenue dans le registre
+[01234ABC] = emplacement mémoire absolue
+[DI] = contenu en octets du segment de données adressé par DI
+
+
 ## étape 2  : La compilation
 nasm : 
 Le outpout file format sur linux c’est : elf64
