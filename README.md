@@ -25,6 +25,12 @@ Nasm = assembleur à utiliser pour tes fichiers .s
 #### Documentation :
 Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup : [ici](https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf). Deux autres documentations pas mal : [celle-ci](http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm) et [celle-la](https://www.lacl.fr/tan/asm).
 
+| SEGMENTS | REGISTRES | DRAPEAUX |
+|----------|-----------|----------|
+|  sorte de boîte où on va mettre des instructions      | 48310     | 3        | 
+| p        | 48308     | 48310    |
+| p*       | 48310     | 3        |
+
 #### Syntaxe :
   ```
   extern   *fonction*      ; pour les fonctions externes utilisées, par exemple : extern malloc
