@@ -22,12 +22,10 @@ Nasm = assembleur à utiliser pour tes fichiers .s
 # II - Comment ai-je fait Libasm ? 5 étapes
 
 ## étape 1  : Comprendre les bases
-Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup : [ici](https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf) 
+#### Documentation :
+Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup : [ici](https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf). Deux autres documentations pas mal : [celle-ci](http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm) et [celle-la](https://www.lacl.fr/tan/asm).
 
-Deux autres documentations pas mal : [celle-ci](http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm) et [celle-la](https://www.lacl.fr/tan/asm)
-
-
-Format :
+#### Format :
   ```
   extern   *fonction*      ; pour les fonctions externes utilisées, par exemple extern malloc
   global   *fonction*      ; pour déclarer une fonction, par exemple global ft_strlen
@@ -36,15 +34,14 @@ Format :
   étiquette:               ; par exemple _ft_strlen:
   inst   dest, src, last   ; instruction par exemple mov et les opérandes par exemple mov rax, rdi
    ```
-
-Paramètres envoyés à notre fonction assembleur :
+#### Paramètres envoyés à notre fonction assembleur :
 ft_example(param1, param2, param3, param4,param5, param6)
-rdi param1
-rsi param2
-rdx param3
-rcx param4
-r8 param5
-r9 param6
+- rdi param1
+- rsi param2
+- rdx param3
+- rcx param4
+- r8 param5
+- r9 param6
 
 Syntaxe :
 [UnSymbole] = adresse mémoire du symbole
