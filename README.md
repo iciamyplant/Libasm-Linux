@@ -27,11 +27,13 @@ Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais
 Deux autres documentations pas mal : [celle-ci](http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm) et [celle-la](https://www.lacl.fr/tan/asm)
 
 Format :
-extern *fonctionexterneutilisée*
-global *fonctionglobaledéclarée*
-segment. (pas obligatoire d’écrire les segments)
-étiquette (par exemple _ft_strlen:)
-instruction destination_operand, source_operand, last_operand
+  ```
+  extern *fonctionexterneutilisée*
+  global *fonctionglobaledéclarée*
+  segment. (pas obligatoire d’écrire les segments, par exemple data.)
+  étiquette: (par exemple _ft_strlen:)
+  instruction destination_operand, source_operand, last_operand
+   ```
 
 Paramètres envoyés à notre fonction assembleur :
 ft_example(param1, param2, param3, param4,param5, param6)
