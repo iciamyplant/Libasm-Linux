@@ -53,7 +53,7 @@ ft_example(param1, param2, param3, param4,param5, param6)
 
 #### Syntaxe :
   ```
-  extern   *fonction*      ; pour les fonctions externes utilisées, par exemple : extern malloc
+  extern   *fonction*      ; permet de dire au compilateur que l'on va appeler une fonction extérieure à notre programme, par exemple : extern malloc
   global   *fonction*      ; pour déclarer une fonction, par exemple : global ft_strlen
   ; commentaire
   segment.                 ; pas obligatoire d’écrire les segments, par exemple data.
@@ -83,7 +83,7 @@ Sur Linux tu peux compiler avec le flag : -felf64.
 - -elf64 = c'est outpout file format pour Linux
 - -f = si tu mets pas le -f à NASM il va choisir un outpout file format tout seul
 
-Sur MacOs tu peux compiler avec le flag : -f macho64
+Sur MacOs tu peux compiler avec le flag : -fmacho64
 
 ## étape 3  : Les fonctions
 appels systèmes dans :
@@ -96,7 +96,7 @@ Chaque appel système possède un numéro, qui est placé dans RAX.
 Le système utilise sa propre pile, la pile du processus appelant n’est pas modifiée.
 Les registres sont inchangés, sauf peut-être RCX et R11, RAX contient retour du syscall.
 
-extern permet de dire au compilateur que l'on va appeler une fonction extérieure à notre programme.
+
 
 ## étape 4  : Gestion des erreurs
 quand tu fais un appel système a write c’est pas la même que quand t’appelle la fonction write. l’appel système te renverra la valeur de errno (par exemple -14 avec un NULL) et pas -1 comme quand t’appelle la fonction write. l’appel system te renverra un int négatif, c’est la valeur qu’il faut envoyer a errno mais en négatif. d'où la raison pour laquelle il faut passer le retour de l’appel système en positif. sr
