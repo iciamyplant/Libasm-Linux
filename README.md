@@ -13,14 +13,20 @@
  - Rappels sur le Makefile
 
 # I - Comprendre le sujet
-assembleur = ensemble de langages de programmation. La langue de votre ordi c’est le codage binaire. L’asm est la représentation lisible du langage machine (binaire). 
+### En gros y a différentes composantes dans ton ordi :
+- la ram (= mémoire ram ou mémoire vive)
+- le stockage
+- la carte graphique
+- MAIS SURTOUT : le processeur (= le CPU) : c'est le cerveau de l'ordinateur : il calcule tout. Et y a différents types de processeurs, qui utilisent différents types de jeu d'instruction.
 
-un langage assembleur par architecture de processeur. Il y a des familles de processeurs avec chacun une architecture, et donc un jeu d’instructions. 
-ASM 64 bits?? C’est le langage assembleur adapté au processeur ayant pour jeu d’instruction X64.
-le jeu d’instruction X64?? x86-64, ou x64, est une extension du jeu d'instructions x86 d'Intel
-asm inline?? L'assembleur inline vous permet d'incorporer des instructions en langage assembleur directement dans vos programmes sources C sans code assembleur ni étapes de liaison supplémentaires. 
-nasm??
-syntaxe Intel?? On distingue 2 syntaxes : Intel et at&t
+### Et c'est justement le processeur qui exécute les programmes qu'on code, sauf qu'il comprend que le langage binaire.
+
+Assembleur = ensemble de langages de programmation. L’asm est la représentation lisible du langage binaire que comprend le processeur. Y a un langage assembleur par jeu d’instructions. 
+Jeu d'instruction =  c’est les commandes que peut faire le processeur (jeu d’instruction ARM, X86, X64...)
+ASM 64 bits = langage assembleur adapté au processeur ayant pour jeu d’instruction X64.
+
+Asm inline = l'assembleur inline permet d'incorporer des instructions en langage assembleur directement dans des programmes sources C sans code assembleur ni étapes de liaison supplémentaires. 
+Nasm = compilateur
 
 # II - Comment ai-je fait Libasm ? 5 étapes
 
