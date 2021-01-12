@@ -60,7 +60,8 @@ ft_example(param1, param2, param3, param4,param5, param6)
   [adresse]                ; représente la valeur stockée à l'adresse adresse.
   [Registre]               ; représente la valeur stockée à l’adresse contenue dans le registre
   [01234ABC]               ; emplacement mémoire absolue
-  [DI]                     ; contenu en octets du segment de données adressé par DI
+  BYTE[]                   ; parfois on précise la taille pour lever l'ambiguïté (byte : 1 octet, word 2 : octets, dword : 2 octets ...)
+
    ```
 
 ## étape 2  : La compilation
