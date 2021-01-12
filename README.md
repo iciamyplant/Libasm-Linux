@@ -14,6 +14,7 @@
 
 # I - Comprendre le sujet
 assembleur = ensemble de langages de programmation. La langue de votre ordi c’est le codage binaire. L’asm est la représentation lisible du langage machine (binaire). 
+
 un langage assembleur par architecture de processeur. Il y a des familles de processeurs avec chacun une architecture, et donc un jeu d’instructions. 
 ASM 64 bits?? C’est le langage assembleur adapté au processeur ayant pour jeu d’instruction X64.
 le jeu d’instruction X64?? x86-64, ou x64, est une extension du jeu d'instructions x86 d'Intel
