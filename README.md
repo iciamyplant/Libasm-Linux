@@ -56,6 +56,12 @@ UnSymbole = valeur du symbole
 
 
 ## étape 2  : La compilation
+Compilation :
+installer nasm : brew install nasm
+imaginons que j’ai un fichier main.c un fichier test.s et un fichier libasm.h
+nasm -f macho64 -o test.o test.s
+gcc main.c test.o libasm.h
+
 nasm : 
 Le outpout file format sur linux c’est : elf64
 Et on fait -f avant pour : f you do not supply the -f option to NASM, it will choose an output file format for you itself. In the distribution versions of NASM, the default is always bin
