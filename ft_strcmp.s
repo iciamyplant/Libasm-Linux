@@ -1,12 +1,12 @@
 ; **************************************************************************** #
 ;                                                                              #
 ;                                                         :::      ::::::::    #
-;    ft_strcmp.s                                        :+:      :+:    :+:    #
+;    ft_write.s                                         :+:      :+:    :+:    #
 ;                                                     +:+ +:+         +:+      #
 ;    By: ebourdit <marvin@42.fr>                    +#+  +:+       +#+         #
 ;                                                 +#+#+#+#+#+   +#+            #
-;    Created: 2021/01/04 11:10:04 by ebourdit          #+#    #+#              #
-;    Updated: 2021/01/04 11:15:40 by ebourdit         ###   ########.fr        #
+;    Created: 2021/01/04 11:26:34 by ebourdit          #+#    #+#              #
+;    Updated: 2021/01/04 11:28:46 by ebourdit         ###   ########.fr        #
 ;                                                                              #
 ; **************************************************************************** #
 
@@ -29,8 +29,8 @@ comp:
 	je		incr
 
 result:
-	movzx	rax, BYTE[rdi + rcx]
-	movzx	rdx, BYTE[rsi + rcx]
+	movzx		rax, BYTE[rdi + rcx]
+	movzx		rdx, BYTE[rsi + rcx]
 	sub		rax, rdx
 
 end:

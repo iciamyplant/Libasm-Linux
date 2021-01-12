@@ -22,5 +22,5 @@ loop:
 	jmp		loop					; boucler loop
 
 return:
-	mov 	rax, rcx					; on copie rcx dans rax car c'est rax qu'on renvoie
+	mov 		rax, rcx				; on copie rcx dans rax car c'est rax qu'on renvoie
 	ret							; return rax
