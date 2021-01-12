@@ -29,12 +29,12 @@ Deux autres documentations pas mal : [celle-ci](http://asmongueur.free.fr/Appren
 
 Format :
   ```
-  extern   *fonction*                                     ; pour les fonctions externes utilisées, par exemple extern malloc
-  global   *fonction*                                     ; pour déclarer une fonction, par exemple global ft_strlen
+  extern   *fonction*      ; pour les fonctions externes utilisées, par exemple extern malloc
+  global   *fonction*      ; pour déclarer une fonction, par exemple global ft_strlen
   ; commentaire
-  segment.                                                ; pas obligatoire d’écrire les segments, par exemple data.
-  étiquette:                                              ; par exemple _ft_strlen:
-  instruction   dest_operand, src_operand, last_operand   ; par exemple mov rax, rdi
+  segment.                 ; pas obligatoire d’écrire les segments, par exemple data.
+  étiquette:               ; par exemple _ft_strlen:
+  inst   dest, src, last   ; instruction par exemple mov et les opérandes par exemple mov rax, rdi
    ```
 
 Paramètres envoyés à notre fonction assembleur :
