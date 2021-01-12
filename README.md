@@ -22,10 +22,13 @@
 ### Et c'est justement le processeur qui exécute les programmes qu'on code, sauf qu'il comprend que le langage binaire.
 
 Assembleur = ensemble de langages de programmation. L’asm est la représentation lisible du langage binaire que comprend le processeur. Y a un langage assembleur par jeu d’instructions. 
+
 Jeu d'instruction =  c’est les commandes que peut faire le processeur (jeu d’instruction ARM, X86, X64...)
+
 ASM 64 bits = langage assembleur adapté au processeur ayant pour jeu d’instruction X64.
 
 Asm inline = l'assembleur inline permet d'incorporer des instructions en langage assembleur directement dans des programmes sources C sans code assembleur ni étapes de liaison supplémentaires. 
+
 Nasm = compilateur
 
 # II - Comment ai-je fait Libasm ? 5 étapes
