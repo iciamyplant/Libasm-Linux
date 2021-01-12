@@ -27,12 +27,12 @@ Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais
 
 #### Syntaxe :
   ```
-  extern   *fonction*      ; pour les fonctions externes utilisées, par exemple extern malloc
-  global   *fonction*      ; pour déclarer une fonction, par exemple global ft_strlen
+  extern   *fonction*      ; pour les fonctions externes utilisées, par exemple : extern malloc
+  global   *fonction*      ; pour déclarer une fonction, par exemple : global ft_strlen
   ; commentaire
   segment.                 ; pas obligatoire d’écrire les segments, par exemple data.
   étiquette:               ; par exemple _ft_strlen:
-  inst   dest, src, last   ; instruction par exemple mov et les opérandes par exemple mov rax, rdi
+  inst   dest, src, last   ; instruction opérande de destination, opérande cible, par exemple : mov rax, rdi
   [UnSymbole]              ; adresse mémoire du symbole
   UnSymbole                ; valeur du symbole
   [adresse]                ; représente la valeur stockée à l'adresse adresse.
