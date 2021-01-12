@@ -22,11 +22,9 @@ Nasm = assembleur à utiliser pour tes fichiers .s
 # II - Comment ai-je fait Libasm ? 5 étapes
 
 ## étape 1  : Comprendre les bases
-Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup. Même si ça en a pas l’air avec la page de garde tout est expliqué clairement avec des exemples.
- : https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf
-http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm
+Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup. Même si ça en a pas l’air avec la page de garde tout est expliqué clairement avec des exemples : https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf
 
-https://www.lacl.fr/tan/asm
+Deux autres documentations pas mal : http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm et https://www.lacl.fr/tan/asm
 
 Format :
 extern *fonctionexterneutilisée*
