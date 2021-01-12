@@ -4,7 +4,7 @@
 void		ft_main_strlen(void)
 {
 	printf("-------------------ft_strlen-------------------\n");
-    printf("ft_strlen : \n");
+	printf("ft_strlen : \n");
 	printf("%zd\n", ft_strlen("test12345"));
 	printf("strlen : \n");
 	printf("%zd\n", strlen("test12345"));
