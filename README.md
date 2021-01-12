@@ -21,7 +21,8 @@ asm inline?? L'assembleur inline vous permet d'incorporer des instructions en la
 nasm??
 syntaxe Intel?? On distingue 2 syntaxes : Intel et at&t
 
-#### II - Comment ai-je fait Libasm ? 5 étapes
+# II - Comment ai-je fait Libasm ? 5 étapes
+
 ## étape 1  : Comprendre les bases
 ## étape 2  : La compilation
 ## étape 3  : Les fonctions
@@ -34,4 +35,4 @@ errno tu peux l’imprimer dans ton main
 ## étape 5  : Adapter à Linux
 
 
-#### III - Les trucs utiles que j'ai appris
+# III - Les trucs utiles que j'ai appris
