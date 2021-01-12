@@ -25,7 +25,7 @@ Nasm = assembleur à utiliser pour tes fichiers .s
 #### Documentation :
 Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais les deux se ressemblent beaucoup : [ici](https://perso.univ-st-etienne.fr/ezequel/L2info/coursAssembleur_x86_64.pdf). Deux autres documentations pas mal : [celle-ci](http://asmongueur.free.fr/Apprendre/Nasm/Intro_Nasm_Linux.htm) et [celle-la](https://www.lacl.fr/tan/asm).
 
-#### Format :
+#### Syntaxe :
   ```
   extern   *fonction*      ; pour les fonctions externes utilisées, par exemple extern malloc
   global   *fonction*      ; pour déclarer une fonction, par exemple global ft_strlen
@@ -33,6 +33,12 @@ Meilleure documentation à mes yeux. Elle utilise le format as et non Intel mais
   segment.                 ; pas obligatoire d’écrire les segments, par exemple data.
   étiquette:               ; par exemple _ft_strlen:
   inst   dest, src, last   ; instruction par exemple mov et les opérandes par exemple mov rax, rdi
+  [UnSymbole]       ; adresse mémoire du symbole
+  UnSymbole         ; valeur du symbole
+  [adresse]         ; représente la valeur stockée à l'adresse adresse.
+  [Registre]        ; représente la valeur stockée à l’adresse contenue dans le registre
+  [01234ABC]        ; emplacement mémoire absolue
+  [DI]              ; contenu en octets du segment de données adressé par DI
    ```
 #### Paramètres envoyés à notre fonction assembleur :
 ft_example(param1, param2, param3, param4,param5, param6)
@@ -42,16 +48,6 @@ ft_example(param1, param2, param3, param4,param5, param6)
 - param4 dans rcx 
 - param5 dans r8 
 - param6 dans r9
-
-#### Syntaxe :
-  ```
-[UnSymbole]       ; adresse mémoire du symbole
-UnSymbole         ; valeur du symbole
-[adresse]         ; représente la valeur stockée à l'adresse adresse.
-[Registre]        ; représente la valeur stockée à l’adresse contenue dans le registre
-[01234ABC]        ; emplacement mémoire absolue
-[DI]              ; contenu en octets du segment de données adressé par DI
-   ```
 
 ## étape 2  : La compilation
 Compilation :
