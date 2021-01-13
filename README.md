@@ -166,9 +166,9 @@ quand tu fais un appel système a write c’est pas la même que quand t’appel
 - penser à inclure #include <errno.h>
 - errno_location sur linux
 - ___error sur mac
-errno location retourne un pointeur sur errno dans rax : int * __errno_location(void); ("__errno_location() function shall return the address of the errno variable for the current thread.")
+- errno location retourne un pointeur sur errno dans rax : int * __errno_location(void); ("__errno_location() function shall return the address of the errno variable for the current thread.")
 
-   ```
+
 error:
 neg		rax			; car le syscall renvoie dans rax errno mais en negatif
 mov		rdi, rax		; rdi sert de tampon car apres rax prendera le retour de errno location
@@ -176,7 +176,7 @@ call		__errno_location	; errno location renvoie un pointeur sur errno
 mov		[rax], rdi		; ici rax contient l'adresse de errno donc en faisant ca on met rdi dans errno
 mov		rax, -1			; on met rax à -1 pour renvoyer la bonne valeur d'un appel à write
 ret					; return rax
-   ```
+
 
 ## étape 5  : Adapter à Linux
 - enlever l'underscore sur les fonctions
