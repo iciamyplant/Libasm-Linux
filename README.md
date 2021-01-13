@@ -158,26 +158,27 @@ D'où :
    ```
 
 ## étape 4  : Gestion des erreurs
-quand tu fais un appel système a write c’est pas la même que quand t’appelle la fonction write. L’appel système te renverra la valeur de errno (par exemple -14 avec un NULL) et pas -1 comme quand t’appelle la fonction write. l’appel system te renverra un int négatif, c’est la valeur qu’il faut envoyer a errno mais en négatif. d'où la raison pour laquelle il faut passer le retour de l’appel système en positif.
+quand tu fais un appel système a write c’est pas la même que quand t’appelle la fonction write. L’appel système te renverra la valeur de errno (par exemple -14 avec un NULL) et pas -1 comme quand t’appelle la fonction write. Si y a une erreur l’appel systeme te renverra un int négatif, c’est la valeur qu’il faut envoyer a errno mais en négatif. d'où la raison pour laquelle il faut passer le retour de l’appel système en positif.
 
-- errno c’est un int
-- errno tu peux l’imprimer dans ton main
+- errno c’est un int qui contient le code d'erreur
+- sa valeur n'est significative que lorsque l'appel système a échoué
+- tu peux l’imprimer dans ton main : printf("errno : %d\n", errno);
+- penser à inclure #include <errno.h>
 - errno_location sur linux
 - ___error sur mac
- 
- errno location retourne un pointeur sur errno dans rax
- <errno.h>
-int * __errno_location(void);
-The __errno_location() function shall return the address of the errno variable for the current thread.
+errno location retourne un pointeur sur errno dans rax : int * __errno_location(void); ("__errno_location() function shall return the address of the errno variable for the current thread.")
 
-la variable entière errno qui est renseignée par les appels système (et quelques fonctions de bibliothèque) pour expliquer les conditions d'erreurs. Sa valeur n'est significative que lorsque l'appel système a échoué (généralement en renvoyant -1)
-
-errno contient le code d’erreur
-
+   ```
+error:
+neg		rax			; car le syscall renvoie dans rax errno mais en negatif
+mov		rdi, rax		; rdi sert de tampon car apres rax prendera le retour de errno location
+call		__errno_location	; errno location renvoie un pointeur sur errno
+mov		[rax], rdi		; ici rax contient l'adresse de errno donc en faisant ca on met rdi dans errno
+mov		rax, -1			; on met rax à -1 pour renvoyer la bonne valeur d'un appel à write
+ret					; return rax
+   ```
 
 ## étape 5  : Adapter à Linux
-Adapter a Linux :
-enlever l'underscore sur les fonctions
-compiler avec : -felf64
-
-# III - Les trucs utiles que j'ai appris
+- enlever l'underscore sur les fonctions
+- compiler avec : -felf64
+- utiliser errno_location
