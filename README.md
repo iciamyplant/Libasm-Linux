@@ -91,23 +91,38 @@ Sur MacOs tu peux compiler avec le flag : -fmacho64
 |----------|-----------|
 | initialiser une variable à 0 ; compare si s[variable] et 0 sont égaux, si sont égaux ; return variable ; sinon je continue à looper avec jmp | rdi = char *s ; xor *registre1*, *registre1* permet de mettre la valeur 0 dans le registre *registre1* ; cmp op1,op2 =  fait op1 - op2. Si = 0 ça veut dire que op1 = op2 et alors ZF (drapeau) vaut 1 ; jz op = si ZF=1 on va à op ; inc = incrémente |
 
-- xor	rcx, rcx : Pour fixer la valeur 0 à un registre : mauvaise pratique d’utiliser l'instruction «MOV». Ainsi, l'instruction xor eax, eax occupera 2 octets contre 6 pour move eax, 0
-- cmp	BYTE[rdi + rax], 0 : [ceRegistre] représente la valeur stockée à l’adresse contenue dans le registre ceRegistre.
-- jmp	loop : j’avais d'abord utilisé l’instruction loop mais son utilisation avec rcx décrémente rcx.
-- mov 	rax, rcx : on copie le compteur rcx dans rax car c'est rax qu'on renvoie
-- ret  : retourne rax
+   ```
+xor	rcx, rcx            ; pour fixer la valeur 0 à un registre : mauvaise pratique d’utiliser l'instruction «MOV». Ainsi, l'instruction xor eax, eax occupera 2 octets contre 6 pour move eax, 0
+cmp	BYTE[rdi + rax], 0  ; [ceRegistre] représente la valeur stockée à l’adresse contenue dans le registre ceRegistre.
+jmp	loop                ; j’avais d'abord utilisé l’instruction loop mais son utilisation avec rcx décrémente rcx.
+mov rax, rcx            ; on copie le compteur rcx dans rax car c'est rax qu'on renvoie
+ret                     ; retourne rax
+   ```
 
 #### ft_strcpy : char *strcpy(char *dest, const char *src);
 copie la chaîne pointée par src (y compris l'octet nul « \0 » final) dans la chaîne pointée par dest. Les deux chaînes ne doivent pas se chevaucher. La chaîne dest doit être assez grande pour accueillir la copie.
 
 | A faire | Informations |
 |----------|-----------|
+| initialiser une variable à 0 ; compare si src[variable] et 0 sont égaux ; si sont égaux : return dest ; sinon je continue ; je copie src[variable] dans dest[variable] ; je loop avec jmp | rdi = char *dest ; rsi = char *src |
+
+   ```
+mov	dl, [rsi + rax]       ; copie le caractère à copier (rsi[rax]) dans dl, avec mov : les deux opérandes doivent être de la même taille donc on utilise dl qui fait 1 octet, L'opérande source peut être  : une valeur immédiate, un registre à usage général, un registre de segment ou un emplacement de mémoire, Le registre de destination peut être un registre à usage général, un registre de segment (CS, DS, ES, FS, GS et SS) ou un emplacement de mémoire 
+mov [rdi + rax], dl       ; copie le caractere à copier qui est dans dl dans rdi[rcx]
+mov	byte [rdi + rcx], 0   ; on ajoute le 0 final
+mov	rax, rdi              ; on met dans rax la char * qu'on renvoie
+   ```
 
 
-appels systèmes dans :
-ft_write
-ft_read
-ft_strdup
+
+
+
+
+
+#### Les appels systèmes dans :
+- ft_write
+- ft_read
+- ft_strdup
 quand tu fais un printf, ce que fait vraiment printf dans son code, c'est faire des syscall à write() en fait
 Les appels systèmes en assembleur :
 Chaque appel système possède un numéro, qui est placé dans RAX.
