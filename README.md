@@ -107,10 +107,10 @@ copie la chaîne pointée par src (y compris l'octet nul « \0 » final) dans la
 | initialiser une variable à 0 ; compare si src[variable] et 0 sont égaux ; si sont égaux : return dest ; sinon je continue ; je copie src[variable] dans dest[variable] ; je loop avec jmp | rdi = char *dest ; rsi = char *src |
 
    ```
-mov	dl, [rsi + rax]       ; copie le caractère à copier (rsi[rax]) dans dl, avec mov : les deux opérandes doivent être de la même taille donc on utilise dl qui fait 1 octet, L'opérande source peut être  : une valeur immédiate, un registre à usage général, un registre de segment ou un emplacement de mémoire, Le registre de destination peut être un registre à usage général, un registre de segment (CS, DS, ES, FS, GS et SS) ou un emplacement de mémoire 
+mov dl, [rsi + rax]       ; copie le caractère à copier (rsi[rax]) dans dl, avec mov : les deux opérandes doivent être de la même taille donc on utilise dl qui fait 1 octet, L'opérande source peut être  : une valeur immédiate, un registre à usage général, un registre de segment ou un emplacement de mémoire, Le registre de destination peut être un registre à usage général, un registre de segment (CS, DS, ES, FS, GS et SS) ou un emplacement de mémoire 
 mov [rdi + rax], dl       ; copie le caractere à copier qui est dans dl dans rdi[rcx]
-mov	byte [rdi + rcx], 0   ; on ajoute le 0 final
-mov	rax, rdi              ; on met dans rax la char * qu'on renvoie
+mov byte [rdi + rcx], 0   ; on ajoute le 0 final
+mov rax, rdi              ; on met dans rax la char * qu'on renvoie
    ```
 
 
