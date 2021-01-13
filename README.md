@@ -132,27 +132,38 @@ call  ft_strcpy   ; copie rsi dans rdi
 ret               ; return rax
    ```
 
+#### ft_strcmp : int strcmp(const char *s1, const char *s2);
+compare les deux chaînes s1 et s2. Renvoie :
+- Si s1 est inférieure à s2 : entier négatif
+- Si s1 est supérieure à s2 : entier positif
+- Si s1 est égale à s2 : entier nul
 
+#### ft_write : ssize_t write(int fd, const void *buf, size_t count);
+write() écrit jusqu'à count octets dans le fichier associé au descripteur fd depuis le tampon pointé par buf. write() renvoie le nombre d'octets écrits (0 signifiant aucune écriture), ou -1 s'il échoue, auquel cas errno contient le code d'erreur. Si count vaut zéro, et si fd est associé à un fichier normal, write() peut renvoyer un code d'erreur si l'une des erreurs ci-dessous est détectée. Si aucune erreur n'est détectée, 0 sera renvoyé sans effets de bord. 
 
-#### Les appels systèmes dans :
-- ft_write
-- ft_read
-- ft_strdup
-quand tu fais un printf, ce que fait vraiment printf dans son code, c'est faire des syscall à write() en fait
+#### ft_read : ssize_t read(int fd, void *buf, size_t count);
+read() lit jusqu'à count octets depuis le descripteur de fichier fd dans le tampon pointé par buf. read() renvoie -1 s'il échoue, auquel cas errno contient le code d'erreur, et la position de la tête de lecture est indéfinie.
+
+#### Appels systèmes :
+Quand tu fais un printf, ce que fait vraiment printf dans son code, c'est faire des syscall à write()
 Les appels systèmes en assembleur :
-Chaque appel système possède un numéro, qui est placé dans RAX.
-Le système utilise sa propre pile, la pile du processus appelant n’est pas modifiée.
-Les registres sont inchangés, sauf peut-être RCX et R11, RAX contient retour du syscall.
+- Chaque appel système possède un numéro, qui est placé dans RAX.
+- Le système utilise sa propre pile, la pile du processus appelant n’est pas modifiée.
+- Les registres sont inchangés, sauf peut-être RCX et R11, RAX contient le retour du syscall.
 
-
+D'où :
+   ```
+	mov		rax, 1			; syscall a write
+	syscall
+   ```
 
 ## étape 4  : Gestion des erreurs
-quand tu fais un appel système a write c’est pas la même que quand t’appelle la fonction write. l’appel système te renverra la valeur de errno (par exemple -14 avec un NULL) et pas -1 comme quand t’appelle la fonction write. l’appel system te renverra un int négatif, c’est la valeur qu’il faut envoyer a errno mais en négatif. d'où la raison pour laquelle il faut passer le retour de l’appel système en positif. sr
-errno c’est un int il 
-errno tu peux l’imprimer dans ton main
+quand tu fais un appel système a write c’est pas la même que quand t’appelle la fonction write. L’appel système te renverra la valeur de errno (par exemple -14 avec un NULL) et pas -1 comme quand t’appelle la fonction write. l’appel system te renverra un int négatif, c’est la valeur qu’il faut envoyer a errno mais en négatif. d'où la raison pour laquelle il faut passer le retour de l’appel système en positif.
 
-errno_location sur linux
- ___error sur mac
+- errno c’est un int
+- errno tu peux l’imprimer dans ton main
+- errno_location sur linux
+- ___error sur mac
  
  errno location retourne un pointeur sur errno dans rax
  <errno.h>
