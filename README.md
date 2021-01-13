@@ -98,6 +98,8 @@ Sur MacOs tu peux compiler avec le flag : -fmacho64
 - ret  : retourne rax
 
 #### ft_strcpy : char *strcpy(char *dest, const char *src);
+copie la chaîne pointée par src (y compris l'octet nul « \0 » final) dans la chaîne pointée par dest. Les deux chaînes ne doivent pas se chevaucher. La chaîne dest doit être assez grande pour accueillir la copie.
+
 | A faire | Informations |
 |----------|-----------|
 
