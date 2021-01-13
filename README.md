@@ -169,7 +169,7 @@ quand tu fais un appel système a write c’est pas la même que quand t’appel
 - errno location retourne un pointeur sur errno dans rax : int * __errno_location(void); ("__errno_location() function shall return the address of the errno variable for the current thread.")
 
 
-error:
+
 neg		rax			; car le syscall renvoie dans rax errno mais en negatif
 mov		rdi, rax		; rdi sert de tampon car apres rax prendera le retour de errno location
 call		__errno_location	; errno location renvoie un pointeur sur errno
@@ -177,15 +177,12 @@ mov		[rax], rdi		; ici rax contient l'adresse de errno donc en faisant ca on met
 mov		rax, -1			; on met rax à -1 pour renvoyer la bonne valeur d'un appel à write
 ret					; return rax
    ```
-push  rdi         ; rdi contient *s dont on aura besoin après pour ft_strcpy. On push dans la pile pour pas perdre *s
-inc   rax         ; rax contient la taille renvoyée par ft_strlen, on incremente de 1 pr le \0
-mov   rdi, rax    ; rdi sera envoyé a malloc donc doit etre egal au nombre de caractere de *s cad rax
-call  malloc      ; on appelle malloc pour malloquer la nouvelle chaine de rax caracteres (renverra le pointeur sur la place mémoire dans rax)
-cmp   rax, 0      ; si malloc echoue
-mov   rdi, rax    ; on met rax dans rdi pour que rdi ai la place memoire pr ensuite envoyer a strcpy
-pop   rsi         ; je remets *s dans rsi
-call  ft_strcpy   ; copie rsi dans rdi
-ret               ; return rax
+neg		rax			; car le syscall renvoie dans rax errno mais en negatif
+mov		rdi, rax		; rdi sert de tampon car apres rax prendera le retour de errno location
+call		__errno_location	; errno location renvoie un pointeur sur errno
+mov		[rax], rdi		; ici rax contient l'adresse de errno donc en faisant ca on met rdi dans errno
+mov		rax, -1			; on met rax à -1 pour renvoyer la bonne valeur d'un appel à write
+ret					; return rax
    ```
 
 ## étape 5  : Adapter à Linux
