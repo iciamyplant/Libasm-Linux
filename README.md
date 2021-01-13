@@ -86,6 +86,22 @@ Sur Linux tu peux compiler avec le flag : -felf64.
 Sur MacOs tu peux compiler avec le flag : -fmacho64
 
 ## étape 3  : Les fonctions
+#### ft_strlen.s : size_t strlen(const char *s);
+| A faire | Informations |
+|----------|-----------|
+| initialiser une variable à 0 ; compare si s[variable] et 0 sont égaux, si sont égaux ; return variable ; sinon je continue à looper avec jmp | rdi = char *s ; xor *registre1*, *registre1* permet de mettre la valeur 0 dans le registre *registre1* ; cmp op1,op2 =  fait op1 - op2. Si = 0 ça veut dire que op1 = op2 et alors ZF (drapeau) vaut 1 ; jz op = si ZF=1 on va à op ; inc = incrémente |
+
+- xor	rcx, rcx : Pour fixer la valeur 0 à un registre : mauvaise pratique d’utiliser l'instruction «MOV». Ainsi, l'instruction xor eax, eax occupera 2 octets contre 6 pour move eax, 0
+- cmp	BYTE[rdi + rax], 0 : [ceRegistre] représente la valeur stockée à l’adresse contenue dans le registre ceRegistre.
+- jmp	loop : j’avais d'abord utilisé l’instruction loop mais son utilisation avec rcx décrémente rcx.
+- mov 	rax, rcx : on copie le compteur rcx dans rax car c'est rax qu'on renvoie
+- ret  : retourne rax
+
+#### ft_strcpy : char *strcpy(char *dest, const char *src);
+| A faire | Informations |
+|----------|-----------|
+
+
 appels systèmes dans :
 ft_write
 ft_read
