@@ -121,14 +121,14 @@ renvoie un pointeur sur une nouvelle chaîne de caractères qui est dupliquée d
 | connaître la taille de *s avec ft_strlen ; malloquer cette taille pour le doublon sachant que rdi contiendra la size étant donné que void *malloc(size_t size)  ; copier *s dans le doublon avec ft_strcpy | rdi = char *s ; call    _malloc : Comment appeller une fonction en asm ? il faut d’abord la déclarer avec : extern _malloc : puis avec call ; push    rdi ; pop     rsi |
 
    ```
-push  rdi			    ; rdi contient *s dont on aura besoin après pour ft_strcpy. On push dans la pile pour pas perdre *s
-inc   rax			    ; rax contient la taille renvoyée par ft_strlen, on incremente de 1 pr le \0
-mov   rdi, rax		; rdi sera envoyé a malloc donc doit etre egal au nombre de caractere de *s cad rax
-call  malloc			; on appelle malloc pour malloquer la nouvelle chaine de rax caracteres (renverra le pointeur sur la place mémoire dans rax)
-cmp   rax, 0			; si malloc echoue
-mov   rdi, rax		; on met rax dans rdi pour que rdi ai la place memoire pr ensuite envoyer a strcpy
-pop   rsi			    ; je remets *s dans rsi
-call  ft_strcpy		; copie rsi dans rdi
+push  rdi         ; rdi contient *s dont on aura besoin après pour ft_strcpy. On push dans la pile pour pas perdre *s
+inc   rax         ; rax contient la taille renvoyée par ft_strlen, on incremente de 1 pr le \0
+mov   rdi, rax    ; rdi sera envoyé a malloc donc doit etre egal au nombre de caractere de *s cad rax
+call  malloc      ; on appelle malloc pour malloquer la nouvelle chaine de rax caracteres (renverra le pointeur sur la place mémoire dans rax)
+cmp   rax, 0      ; si malloc echoue
+mov   rdi, rax    ; on met rax dans rdi pour que rdi ai la place memoire pr ensuite envoyer a strcpy
+pop   rsi         ; je remets *s dans rsi
+call  ft_strcpy   ; copie rsi dans rdi
 ret               ; return rax
    ```
 
